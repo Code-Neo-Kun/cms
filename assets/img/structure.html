@@ -1,0 +1,51 @@
+CMS-manager/
+│
+├── CMS-manager.php                # 🔹 Main plugin loader file (register hooks, load classes)
+│
+├── includes/
+│   ├── class-activator.php                    # On activation: creates DB tables, roles, default settings
+│   ├── class-deactivator.php                  # On deactivation: cleans temp data, removes roles
+│   ├── class-admin-menu.php                   # Registers admin menu pages
+│   ├── class-dashboard-ui.php                 # Dashboard summary (Today's Tasks, Meetings)
+│   ├── class-tasks.php                        # CRUD for tasks
+│   ├── class-meetings.php                     # CRUD for meetings
+│   ├── class-projects.php                     # CRUD for projects/leads
+│   ├── class-reports.php                      # Generate task/meeting performance reports
+│   ├── class-shortcodes.php                   # Frontend shortcodes (for displaying dashboard page, task page, meeting page, lead page, client page, report page, forms)
+│   ├── class-todo.php                         # 🆕 Manages To-Do list data and status updates
+│   ├── class-events.php                       # 🆕 Defines “Follow Up”, “On Leave”, etc.
+│   ├── class-price-list.php                   # 🆕 Handles Price List data (fetch from DB / custom table)
+│   ├── class-assign-task.php                  # 🆕 Logic for assigning tasks to users
+│   ├── class-ajax-handler.php                 # 🆕 Central AJAX endpoints for forms (add/update/delete)
+│   ├── helpers.php                            # Utility functions
+│   ├── loader.php                             # Loads & initializes all classes
+│
+├── admin/
+│   ├── css/
+│   │   └── admin-style.css                    # Admin UI styling
+│   │
+│   ├── js/
+│   │   ├── admin-script.js                    # General admin interactivity
+│   │   ├── todo-script.js                     # To-Do list AJAX updates
+│   │   ├── price-list.js                      # 🆕 Filter/download logic for Price List page
+│   │   └── assign-task.js                     # 🆕 AJAX submission for assigning tasks
+│   │
+│   └── templates/
+│       ├── dashboard.php                      # Dashboard overview
+│       ├── project-form.php                   # Add/Edit project form
+│       ├── task-form.php                      # Add/Edit task form
+│       ├── meeting-form.php                   # Add/Edit meeting form
+│       ├── report-form.php                    # Generate & view reports
+│       ├── todo-list.php                      # 🆕 To-Do List view (tasks + meetings)
+│       ├── event-form.php                     # 🆕 Add “Follow Up Phone Call / Other Task”
+│       ├── price-list.php                     # 🆕 UI for Price List (matches your first screenshot)
+│       └── assign-task.php                    # 🆕 Assign Task UI (matches your third screenshot)
+│
+├── languages/
+│   └── CMS-manager.pot            # 🆕 Translation template file
+│
+├── assets/
+│   ├── images/                                # 🆕 Plugin icons, banners
+│   └── pdf/                                   # 🆕 (optional) store generated price list PDFs
+│
+└── uninstall.php                              # Cleanup script for uninstall

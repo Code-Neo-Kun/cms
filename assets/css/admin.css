@@ -1,0 +1,1198 @@
+/**
+ * CoSign Planner - Admin Styles
+ * Main stylesheet for the plugin admin interface
+ */
+
+:root {
+    --primary-color: #000066;
+    --secondary-color: #92b92a;
+    --text-color: #2c3e50;
+    --light-gray: #f8f9fa;
+    --border-color: #e2e8f0;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --hover-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+    --radius: 8px;
+}
+
+/* ==============================================
+   GLOBAL STYLES
+   ============================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+.wrap.cosign-wrap {
+    max-width: 1400px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* ==============================================
+   HEADERS
+   ============================================== */
+
+.cosign-header {
+    background: linear-gradient(135deg, var(--primary-color), #000099);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius) var(--radius) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cosign-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+}
+
+.cosign-header h1 i {
+    font-size: 1.5rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.section-header {
+    background: #f03e3e;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.section-header.completed {
+    background: #82c91e;
+}
+
+/* ==============================================
+   BUTTONS
+   ============================================== */
+
+.cosign-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background: var(--secondary-color);
+    color: white;
+    border: 2px solid transparent;
+}
+
+.cosign-btn:hover {
+    background: #7a9c23;
+    transform: translateY(-1px);
+    box-shadow: var(--hover-shadow);
+    color: white;
+}
+
+.cosign-btn.secondary {
+    background: white;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+}
+
+.cosign-btn.secondary:hover {
+    background: var(--light-gray);
+    border-color: #cbd5e1;
+}
+
+.cosign-btn.small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+.cosign-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.action-btn.edit {
+    background: #e9ecef;
+    color: var(--text-color);
+}
+
+.action-btn.edit:hover {
+    background: #dee2e6;
+}
+
+.action-btn.delete {
+    background: #ffe3e3;
+    color: #e03131;
+}
+
+.action-btn.delete:hover {
+    background: #ffc9c9;
+}
+
+.action-btn.view {
+    background: #d0ebff;
+    color: #1971c2;
+}
+
+.action-btn.view:hover {
+    background: #a5d8ff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ==============================================
+   FORMS
+   ============================================== */
+
+.cosign-form {
+    padding: 2rem;
+}
+
+.cosign-form-row {
+    margin-bottom: 1.5rem;
+}
+
+.cosign-form-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.cosign-form-row label i {
+    margin-right: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.required-field::after,
+.required::after {
+    content: " *";
+    color: #ef4444;
+}
+
+.cosign-form-row input[type="text"],
+.cosign-form-row input[type="email"],
+.cosign-form-row input[type="url"],
+.cosign-form-row input[type="date"],
+.cosign-form-row input[type="time"],
+.cosign-form-row input[type="number"],
+.cosign-form-row input[type="file"],
+.cosign-form-row select,
+.cosign-form-row textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.cosign-form-row input:focus,
+.cosign-form-row select:focus,
+.cosign-form-row textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 102, 0.1);
+}
+
+.cosign-form-row input.error,
+.cosign-form-row select.error,
+.cosign-form-row textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.cosign-form-row textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.cosign-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.cosign-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Select styling */
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+    appearance: none;
+}
+
+::placeholder {
+    color: #94a3b8;
+}
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* ==============================================
+   MODALS
+   ============================================== */
+
+.cosign-modal {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.2s ease;
+}
+
+.cosign-modal .modal-content {
+    background-color: white;
+    margin: 3% auto;
+    padding: 0;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideDown 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cosign-modal .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.cosign-modal .close:hover {
+    background: var(--light-gray);
+    color: #000;
+}
+
+/* ==============================================
+   TABLES
+   ============================================== */
+
+.cosign-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+}
+
+.cosign-table thead th {
+    background: var(--light-gray);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.cosign-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.cosign-table tbody tr:hover td {
+    background-color: rgba(146, 185, 42, 0.05);
+}
+
+.cosign-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==============================================
+   SEARCH FUNCTIONALITY
+   ============================================== */
+
+.search-container {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--hover-shadow);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-result-item:hover {
+    background-color: var(--light-gray);
+}
+
+.search-result-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-result-item.no-results {
+    color: #94a3b8;
+    cursor: default;
+}
+
+.search-result-item.no-results:hover {
+    background: transparent;
+}
+
+.search-result-item strong {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.search-result-item small {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* ==============================================
+   PRIORITY & STATUS BADGES
+   ============================================== */
+
+.cosign-priority,
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.cosign-priority.high,
+.priority-high {
+    background: #ffeaea;
+    color: #dc3545;
+}
+
+.cosign-priority.medium,
+.priority-medium {
+    background: #fff4e6;
+    color: #fd7e14;
+}
+
+.cosign-priority.low,
+.priority-low {
+    background: #e6f4ea;
+    color: #28a745;
+}
+
+.status-scheduled {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.status-completed {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* ==============================================
+   NOTIFICATIONS
+   ============================================== */
+
+.cosign-notification {
+    position: fixed;
+    top: 32px;
+    right: -400px;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 999999;
+    min-width: 300px;
+    max-width: 400px;
+    transition: right 0.3s ease;
+    border-left: 4px solid;
+}
+
+.cosign-notification.show {
+    right: 32px;
+}
+
+.cosign-notification i {
+    font-size: 1.5rem;
+}
+
+.cosign-notification.success {
+    border-color: #28a745;
+}
+
+.cosign-notification.success i {
+    color: #28a745;
+}
+
+.cosign-notification.error {
+    border-color: #dc3545;
+}
+
+.cosign-notification.error i {
+    color: #dc3545;
+}
+
+.cosign-notification.warning {
+    border-color: #ffc107;
+}
+
+.cosign-notification.warning i {
+    color: #ffc107;
+}
+
+.cosign-notification.info {
+    border-color: #17a2b8;
+}
+
+.cosign-notification.info i {
+    color: #17a2b8;
+}
+
+/* ==============================================
+   FILTERS
+   ============================================== */
+
+.cosign-filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+}
+
+.cosign-filters select,
+.cosign-filters input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    min-width: 150px;
+    font-size: 14px;
+    background: white;
+}
+
+.cosign-filters input[type="text"] {
+    background: white url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>') no-repeat;
+    background-position: center right 12px;
+    padding-right: 35px;
+}
+
+/* ==============================================
+   STATS CARDS
+   ============================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--secondary-color), #a8d130);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    background: rgba(146, 185, 42, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1);
+    background: rgba(146, 185, 42, 0.2);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================================
+   DASHBOARD SPECIFIC
+   ============================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+    border-color: rgba(146, 185, 42, 0.3);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #000099);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.daily-actions {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--light-gray);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #64748b;
+    background: linear-gradient(to bottom, transparent, rgba(146, 185, 42, 0.03));
+    border-radius: var(--radius);
+    margin: 1rem 0;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #94a3b8;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.empty-state small {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* ==============================================
+   CALENDAR SPECIFIC
+   ============================================== */
+
+.day-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999999;
+    width: 320px;
+}
+
+.day-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999998;
+}
+
+.day-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.day-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.day-modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+.day-modal-actions {
+    display: grid;
+    gap: 12px;
+}
+
+.day-indicator {
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    color: white;
+}
+
+.meeting-count {
+    background: var(--primary-color);
+}
+
+.task-count {
+    background: var(--secondary-color);
+}
+
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cosign-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrap.cosign-wrap {
+        margin: 1rem;
+    }
+
+    .cosign-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.25rem;
+    }
+
+    .cosign-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .header-actions .cosign-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cosign-form {
+        padding: 1.5rem;
+    }
+
+    .cosign-form-actions {
+        flex-direction: column;
+    }
+
+    .cosign-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .button-group {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .button-group .cosign-btn {
+        width: 100%;
+    }
+
+    .cosign-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cosign-table thead th,
+    .cosign-table tbody td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .empty-state i {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .cosign-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cosign-filters select,
+    .cosign-filters input {
+        width: 100%;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cosign-notification {
+        right: -100%;
+        left: auto;
+        min-width: 280px;
+    }
+
+    .cosign-notification.show {
+        right: 16px;
+    }
+
+    .cosign-modal .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+
+    .day-modal {
+        width: 90%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cosign-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .user-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==============================================
+   PRINT STYLES
+   ============================================== */
+
+@media print {
+    .cosign-header,
+    .header-actions,
+    .cosign-btn,
+    .action-btn,
+    .cosign-filters,
+    .cosign-modal,
+    .cosign-notification {
+        display: none !important;
+    }
+
+    .wrap.cosign-wrap {
+        box-shadow: none;
+        border: none;
+    }
+
+    .cosign-table {
+        border: 1px solid #000;
+    }
+
+    .cosign-table thead th {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+        border: 1px solid #000;
+    }
+
+    .cosign-table tbody td {
+        border: 1px solid #000;
+    }
+}
+
+/* ==============================================
+   UTILITY CLASSES
+   ============================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+
+.w-full {
+    width: 100%;
+}
+
+.text-muted {
+    color: #64748b;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+}
+
+.rounded {
+    border-radius: var(--radius);
+}
+
+.shadow {
+    box-shadow: var(--shadow);
+}
+
+.hover-shadow {
+    transition: var(--transition);
+}
+
+.hover-shadow:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+/* ==============================================
+   COMMENT BADGES
+   ============================================== */
+
+.comment-badge {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 5px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 14px;
+}
+
+.no-stakeholders {
+    color: #999;
+    font-style: italic;
+}
